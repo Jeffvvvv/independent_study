@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Radiation Oncology Decision Support System</title>
+
+  <script type="text/javascript" src="./scripts/jqplot/dist/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+
+  <script type="text/javascript" src="./scripts/jqplot/dist/jquery.jqplot.min.js"></script>
+  <link class="include" rel="stylesheet" type="text/css" href="./css/jquery.jqplot.css" />
+
+  <link rel="stylesheet" type="text/css" href="./css/bs_leftnavi.css">
+  <script src="./scripts/bs_leftnavi.js"></script>
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <script src="./scripts/app.js"></script>
+  <script src="./scripts/readFiles.js"></script>
+  <script type="text/javascript" src="./scripts/jqplot/dist/plugins/jqplot.dateAxisRenderer.min.js"></script>
+  <script type="text/javascript" src="./scripts/jqplot/dist/plugins/jqplot.barRenderer.min.js"></script>
+  <script class="include" type="text/javascript" src="./scripts/jqplot/dist/plugins/jqplot.canvasAxisLabelRenderer.min.js"></script>
+  <script type="text/javascript" type="text/javascript" src="./scripts/jqplot/dist/plugins/jqplot.logAxisRenderer.min.js"></script>
+  <script type="text/javascript" type="text/javascript" src="./scripts/jqplot/dist/plugins/jqplot.canvasTextRenderer.min.js"></script>
+  <script type="text/javascript" type="text/javascript" src="./scripts/jqplot/dist/plugins/jqplot.canvasAxisLabelRenderer.min.js"></script>
+  <script type="text/javascript" type="text/javascript" src="./scripts/jqplot/dist/plugins/jqplot.canvasAxisTickRenderer.min.js"></script>
+  <script type="text/javascript" type="text/javascript" src="./scripts/jqplot/dist/plugins/jqplot.categoryAxisRenderer.min.js"></script>
+  <script type="text/javascript" src="./scripts/jqplot/dist/plugins/jqplot.cursor.min.js"></script>
+  <script type="text/javascript" src="./scripts/jqplot/dist/plugins/jqplot.highlighter.min.js"></script>
+  <script type="text/javascript" src="./scripts/jqplot/dist/plugins/jqplot.dragable.min.js"></script>
+  <script type="text/javascript" src="./scripts/jqplot/dist/plugins/jqplot.enhancedLegendRenderer.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+	<link rel="stylesheet" type="text/css" href="./css/approvebtn.css">
+	<script src="./scripts/changePatient.js"></script>
+</head>
+<body>
+
+
+  <!-- create the navigation bar -->
+  <div id="gw-sidebar" class="gw-sidebar">
+    <center>
+			<div class="dropdown">
+		<!--<button onclick="myFunction()" class="dropbtn">Patient A</button>-->
+		<div>
+			<button class="dropbtn" id="patient_button">Patient Selector</button><!--<input type="text" id="username">-->
+  		<div id="myDropdown" class="dropdown-content">
+   <!--  		<input type="text" placeholder="Search.." id="username" onkeyup="filterFunction()">
+ -->
+          
+  		</div>
+		</div>
+		<!--dropdown menu of list of patients in patient_data/qcMCO -->
+		<!--<div class="dropdown">--> <!--dropdown.js -->
+			<!--<button onclick="myFunction2()" class="dropbtn">Dropdown</button>
+			<div class="dropdown-content">
+			</div>
+		</div>-->
+			<br><br>
+      <img id = "headerimg" src="images/patient1.jpg">
+    </center>
+   <div class="nano-content">
+      <ul class="gw-nav gw-nav-list" id="plan_organ_list">
+				<br><br>
+        <!-- <li class="init-un-active" id = "1"><a href="javascript:void(0)"> <span class="gw-menu-text">Heart</span> </a> </li>
+        <li class="init-un-active" id = "2"><a href="javascript:void(0)"> <span class="gw-menu-text">Left Lung</span> </a> </li>
+        <li class="init-un-active" id = "3"><a href="javascript:void(0)"> <span class="gw-menu-text">Right Lung</span> </a> </li>
+        <li class="init-un-active" id = "4"><a href="javascript:void(0)"> <span class="gw-menu-text">Esophagus</span> </a> </li>
+        <li class="init-un-active" id = "5"><a href="javascript:void(0)"> <span class="gw-menu-text">PTV</span> </a> </li> -->
+        <!--<li class="init-un-active" id = "6"><a href="javascript:void(0)"> <span class="gw-menu-text">Change Patient</span> </a> </li>-->
+      </ul>
+    </div>
+  </div>
+
+<div id = "thebody">
+  <!-- display the plots -->
+  <!--<button> Run Python </button>-->
+
+    <!--<div>Patient Name<input type="text" id="username">
+    <button>submit</button></div>
+		<div class="text">
+			<form action="/" method="POST">
+        <div>
+            Patient Number: <input type="number" name="patient_number">
+        </div>
+        <div>
+            Treatment Plan: <input type="text" name="treatment_number">
+        </div>
+				<input id="approve" class="approve" type="submit" value="Save">
+			</form>
+		</div>
+    -->
+    <!--<div class="approve">
+  Approve
+  <div></div>
+  <i class="fa fa-check"></i>
+</div>-->
+  <h3 id="test"></h3>
+  <div id="images"></div>
+<!--<<<<<<< HEAD-->
+	<div class="box">
+		<div class="row">
+			<div class="column" style="width:700px">
+				<div class="col">
+				  <div class="example-plot" id="chart1"></div><br>
+				  <div class="example-chart" id = "chart2"></div><br>
+				  <div class="example-plot" id = "chart3"></div>
+				</div>
+			</div>
+<!--<<<<<<< HEAD-->
+			<div class="column" style="width:700px">
+			  <div class="example-plot" id = "chart3_2"></div>
+<!--=======-->
+			<div class="column">
+			  <div class="example-plot" id = "chart4"><!--trade-off image-->
+				</div>
+<!-- >>>>>>> 57d2da7b28d27f2aa6ab0a9a4d29940724361bd1-->
+			  <div class="example-plot" id = "chart3"><!-- treatment effect -->
+					<!--<img src="treatment.png" width=550px>-->
+				</div>
+			</div>
+		</div>
+</div>
+<!--=======
+  <div class="example-plot" id="chart1"></div><br>
+  <div class="example-chart" id = "chart2"></div><br>
+  <div class="example-plot" id = "chart3"></div>
+  <div class="example-plot" id = "chart4">trade-off image
+    <img src="treatment.png">
+  </div>
+  <div class="example-plot" id = "chart3">treatment effect
+  <img src="tradeoff_img.jpg">
+  </div>
+>>>>>>> 48e63735fbd76e3d7c642d31183c2663a3270e08-->
+
+</div>
+</body>
+
+</html>
